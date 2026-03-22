@@ -3,611 +3,382 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MÃ¼ller SchlÃ¼sseldienst â Berlin Pankow</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>M&uuml;ller Schl&uuml;sseldienst &ndash; Schl&uuml;sselnotdienst Berlin</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --primary: #1a2e4a;
-    --accent: #e8a020;
-    --accent-light: #fdf3e3;
-    --text: #1e2d3d;
-    --text-muted: #5a6a7a;
-    --bg: #f4f7fa;
-    --white: #ffffff;
-    --border: #dde4ed;
-    --shadow: 0 4px 24px rgba(26,46,74,0.10);
-    --radius: 14px;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#f8f9fa;line-height:1.7}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
 
-  /* NAV */
-  nav {
-    background: var(--primary);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 66px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-  }
-  .nav-logo { color: var(--white); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
-  .nav-logo span { color: var(--accent); }
-  .nav-cta {
-    background: var(--accent);
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 0.92rem;
-    padding: 10px 22px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    white-space: nowrap;
-  }
-  .nav-cta:hover { background: #f0b030; transform: translateY(-1px); }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,20,50,0.97);backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Oswald',sans-serif;font-size:1.4rem;color:#f0c040;letter-spacing:1px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:#e0e8ff;font-size:0.88rem;font-weight:500;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:#f0c040}
+.nav-cta{background:#f0c040;color:#1a1a2e;padding:8px 20px;border-radius:6px;font-weight:700;font-size:0.88rem;transition:background 0.2s}
+.nav-cta:hover{background:#e0b030;color:#1a1a2e}
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #1a2e4a 0%, #243d5e 60%, #1e3a5f 100%);
-    color: var(--white);
-    padding: 80px 5% 90px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 380px; height: 380px;
-    background: rgba(232,160,32,0.09);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -100px; left: -60px;
-    width: 300px; height: 300px;
-    background: rgba(232,160,32,0.06);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(232,160,32,0.18);
-    border: 1px solid rgba(232,160,32,0.35);
-    color: var(--accent);
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 50px;
-    margin-bottom: 22px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 12px;
-    line-height: 1.15;
-  }
-  .hero h1 span { color: var(--accent); }
-  .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.72);
-    margin-bottom: 28px;
-    font-weight: 400;
-  }
-  .hero-stars {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 36px;
-  }
-  .stars-icons { color: var(--accent); font-size: 1.4rem; letter-spacing: 2px; }
-  .stars-text { color: rgba(255,255,255,0.85); font-size: 0.95rem; font-weight: 500; }
-  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--accent);
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 15px 34px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 4px 18px rgba(232,160,32,0.35);
-  }
-  .btn-primary:hover { background: #f0b030; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,160,32,0.45); }
-  .btn-outline {
-    background: transparent;
-    color: var(--white);
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 15px 34px;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 2px solid rgba(255,255,255,0.35);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;max-height:800px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&h=600&fit=crop');background-size:cover;background-position:center;filter:brightness(0.45)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,10,40,0.75) 0%,rgba(20,40,100,0.5) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:800px}
+.hero-badge{display:inline-block;background:#f0c040;color:#1a1a2e;font-family:'Oswald',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:30px;margin-bottom:20px}
+.hero-title{font-family:'Oswald',sans-serif;font-size:clamp(2.4rem,6vw,4.2rem);color:#ffffff;font-weight:700;letter-spacing:1px;margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,0.5)}
+.hero-subtitle{font-size:clamp(1rem,2.5vw,1.25rem);color:#c8d8ff;margin-bottom:24px;font-weight:300}
+.hero-stars{font-size:1.6rem;color:#f0c040;margin-bottom:8px;letter-spacing:4px}
+.hero-rating{color:#e0e8ff;font-size:0.9rem;margin-bottom:32px}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#f0c040;color:#1a1a2e;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;letter-spacing:0.5px;transition:all 0.2s;box-shadow:0 4px 20px rgba(240,192,64,0.4)}
+.btn-primary:hover{background:#e0b030;transform:translateY(-2px);box-shadow:0 6px 28px rgba(240,192,64,0.5)}
+.btn-secondary{background:transparent;color:#ffffff;padding:14px 32px;border-radius:8px;font-weight:600;font-size:1rem;border:2px solid rgba(255,255,255,0.5);transition:all 0.2s}
+.btn-secondary:hover{border-color:#f0c040;color:#f0c040;transform:translateY(-2px)}
 
-  /* SECTIONS */
-  section { padding: 72px 5%; }
-  .section-label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-  .section-title {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--primary);
-    margin-bottom: 18px;
-    line-height: 1.2;
-  }
-  .section-divider {
-    width: 52px; height: 4px;
-    background: var(--accent);
-    border-radius: 4px;
-    margin-bottom: 36px;
-  }
+/* SECTIONS GENERAL */
+section{padding:80px 24px}
+.container{max-width:1200px;margin:0 auto}
+.section-label{font-family:'Oswald',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#f0c040;margin-bottom:10px}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#1a1a2e;margin-bottom:16px;line-height:1.2}
+.section-divider{width:60px;height:4px;background:#f0c040;border-radius:2px;margin-bottom:32px}
 
-  /* ÃBER UNS */
-  .ueber-uns { background: var(--white); }
-  .ueber-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .ueber-text p {
-    color: var(--text-muted);
-    font-size: 1.02rem;
-    line-height: 1.8;
-    margin-bottom: 16px;
-  }
-  .features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 10px;
-  }
-  .feature-card {
-    background: var(--bg);
-    border-radius: 12px;
-    padding: 18px 16px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    border: 1px solid var(--border);
-  }
-  .feature-icon {
-    width: 38px; height: 38px;
-    background: var(--accent-light);
-    border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .feature-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--primary); margin-bottom: 3px; }
-  .feature-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
-  .ueber-visual {
-    background: linear-gradient(145deg, #1a2e4a, #243d5e);
-    border-radius: var(--radius);
-    padding: 40px 32px;
-    color: var(--white);
-    text-align: center;
-  }
-  .ueber-visual .big-icon { font-size: 4rem; margin-bottom: 18px; }
-  .ueber-visual h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
-  .ueber-visual p { font-size: 0.9rem; color: rgba(255,255,255,0.72); line-height: 1.7; }
-  .ueber-stat-row { display: flex; gap: 20px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
-  .ueber-stat { text-align: center; }
-  .ueber-stat .num { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
-  .ueber-stat .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+/* ABOUT */
+.about{background:#ffffff}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-img-wrap{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.18)}
+.about-img-wrap img{width:100%;height:420px;object-fit:cover}
+.about-img-badge{position:absolute;bottom:20px;left:20px;background:#f0c040;color:#1a1a2e;padding:10px 20px;border-radius:8px;font-weight:700;font-size:0.9rem}
+.about-text p{color:#4a5568;font-size:0.97rem;margin-bottom:16px;line-height:1.8}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.feature-item{display:flex;align-items:center;gap:10px;background:#f8f9fa;border-radius:8px;padding:12px 14px;font-size:0.88rem;font-weight:600;color:#1a1a2e;border-left:3px solid #f0c040}
+.feature-icon{font-size:1.1rem}
 
-  /* ÃFFNUNGSZEITEN */
-  .oeffnungszeiten { background: var(--bg); }
-  .oeff-inner { max-width: 700px; margin: 0 auto; }
-  .oeff-table { width: 100%; border-collapse: collapse; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-  .oeff-table thead tr { background: var(--primary); color: var(--white); }
-  .oeff-table th { padding: 14px 22px; text-align: left; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
-  .oeff-table tbody tr { background: var(--white); border-bottom: 1px solid var(--border); transition: background 0.15s; }
-  .oeff-table tbody tr:last-child { border-bottom: none; }
-  .oeff-table tbody tr:hover { background: #f0f4f9; }
-  .oeff-table td { padding: 13px 22px; font-size: 0.95rem; }
-  .oeff-table td:first-child { font-weight: 600; color: var(--primary); }
-  .oeff-table td:last-child { color: var(--text-muted); }
-  .open-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #e8f5e9; color: #2e7d32;
-    font-size: 0.78rem; font-weight: 700;
-    padding: 4px 12px; border-radius: 50px;
-    margin-top: 18px;
-  }
-  .open-badge::before { content: ''; display: block; width: 7px; height: 7px; background: #43a047; border-radius: 50%; }
+/* HOURS */
+.hours{background:linear-gradient(135deg,#0a1432 0%,#1a2a6e 100%)}
+.hours .section-title{color:#ffffff}
+.hours .section-label{color:#f0c040}
+.hours-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;overflow:hidden;max-width:600px;margin:0 auto;box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+.hours-header{background:#f0c040;padding:16px 28px;text-align:center;font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:#1a1a2e;letter-spacing:1px}
+.hours-table{width:100%;border-collapse:collapse}
+.hours-table tr{border-bottom:1px solid rgba(255,255,255,0.07)}
+.hours-table tr:last-child{border-bottom:none}
+.hours-table td{padding:13px 28px;font-size:0.92rem}
+.hours-table .day{color:#c8d8ff;font-weight:500}
+.hours-table .time{color:#f0c040;font-weight:600;text-align:right}
+.hours-table tr.today{background:rgba(240,192,64,0.08)}
+.hours-note{text-align:center;margin-top:24px;color:#8898cc;font-size:0.88rem}
+.hours-note span{color:#f0c040;font-weight:600}
 
-  /* BEWERTUNGEN */
-  .bewertungen { background: var(--white); }
-  .bew-inner { max-width: 1100px; margin: 0 auto; }
-  .bew-header { display: flex; align-items: center; gap: 28px; margin-bottom: 40px; flex-wrap: wrap; }
-  .bew-score {
-    background: var(--primary);
-    color: var(--white);
-    border-radius: var(--radius);
-    padding: 22px 30px;
-    text-align: center;
-    min-width: 130px;
-  }
-  .bew-score .score-num { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
-  .bew-score .score-stars { color: var(--accent); font-size: 1.1rem; margin: 4px 0; }
-  .bew-score .score-count { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
-  .bew-desc h3 { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
-  .bew-desc p { font-size: 0.92rem; color: var(--text-muted); }
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 22px;
-  }
-  .review-card {
-    background: var(--bg);
-    border-radius: var(--radius);
-    padding: 24px 22px;
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: box-shadow 0.2s, transform 0.15s;
-  }
-  .review-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-  .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 1px; }
-  .review-text {
-    font-size: 0.93rem;
-    color: var(--text);
-    line-height: 1.7;
-    font-style: italic;
-    flex: 1;
-  }
-  .review-text::before { content: '\201E'; font-size: 2rem; color: var(--accent); line-height: 0; vertical-align: -0.55em; margin-right: 4px; }
-  .review-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 4px;
-  }
-  .review-avatar {
-    width: 34px; height: 34px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--white); font-size: 0.8rem; font-weight: 700;
-    flex-shrink: 0;
-  }
-  .review-name { font-size: 0.85rem; font-weight: 600; color: var(--primary); }
-  .review-platform { font-size: 0.75rem; color: var(--text-muted); }
+/* REVIEWS */
+.reviews{background:#f0f4ff}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:40px}
+.review-card{background:#ffffff;border-radius:14px;padding:28px;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:transform 0.2s,box-shadow 0.2s;border-top:4px solid #f0c040}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 10px 40px rgba(0,0,0,0.12)}
+.review-stars{color:#f0c040;font-size:1.1rem;letter-spacing:3px;margin-bottom:12px}
+.review-text{color:#4a5568;font-size:0.93rem;line-height:1.75;margin-bottom:16px;font-style:italic}
+.review-text.empty{color:#aaa;font-style:italic}
+.review-meta{display:flex;align-items:center;gap:10px}
+.review-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#1a2a6e,#f0c040);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-weight:700;color:#ffffff;font-size:0.85rem}
+.review-author{font-weight:600;font-size:0.88rem;color:#1a1a2e}
+.review-date{font-size:0.78rem;color:#9aaccf}
+.rating-summary{text-align:center;margin-bottom:40px;padding:28px;background:#ffffff;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.06);max-width:360px;margin-left:auto;margin-right:auto;margin-bottom:40px}
+.rating-big{font-family:'Oswald',sans-serif;font-size:3.5rem;font-weight:700;color:#1a1a2e;line-height:1}
+.rating-stars-big{font-size:1.5rem;color:#f0c040;letter-spacing:4px;margin:8px 0}
+.rating-count{font-size:0.88rem;color:#7a8caa}
 
-  /* KONTAKT */
-  .kontakt { background: linear-gradient(135deg, #1a2e4a 0%, #243d5e 100%); color: var(--white); }
-  .kontakt-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  .kontakt .section-title { color: var(--white); }
-  .kontakt .section-label { color: var(--accent); }
-  .kontakt-info { display: flex; flex-direction: column; gap: 22px; margin-top: 8px; }
-  .kontakt-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .kontakt-icon {
-    width: 46px; height: 46px;
-    background: rgba(232,160,32,0.18);
-    border-radius: 11px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.15rem;
-    flex-shrink: 0;
-  }
-  .kontakt-item h4 { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
-  .kontakt-item p, .kontakt-item a { font-size: 1rem; color: rgba(255,255,255,0.88); text-decoration: none; line-height: 1.6; }
-  .kontakt-item a:hover { color: var(--accent); }
-  .kontakt-cta {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: var(--radius);
-    padding: 36px 32px;
-    text-align: center;
-  }
-  .kontakt-cta h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
-  .kontakt-cta p { color: rgba(255,255,255,0.66); margin-bottom: 26px; font-size: 0.95rem; }
-  .kontakt-phone {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--accent);
-    color: var(--primary);
-    font-weight: 800;
-    font-size: 1.2rem;
-    padding: 16px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 4px 20px rgba(232,160,32,0.4);
-    margin-bottom: 16px;
-    display: flex; justify-content: center;
-  }
-  .kontakt-phone:hover { background: #f0b030; transform: translateY(-2px); }
-  .emergency-note { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 14px; }
+/* CONTACT */
+.contact{background:#ffffff}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-info{background:linear-gradient(135deg,#0a1432 0%,#1a2a6e 100%);border-radius:16px;padding:40px;color:#ffffff}
+.contact-info h3{font-family:'Oswald',sans-serif;font-size:1.5rem;margin-bottom:28px;color:#f0c040}
+.contact-item{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start}
+.contact-icon{width:44px;height:44px;background:rgba(240,192,64,0.15);border:1px solid rgba(240,192,64,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-item-label{font-size:0.78rem;color:#8898cc;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;font-weight:600}
+.contact-item-value{font-size:0.97rem;color:#ffffff;font-weight:500}
+.contact-item-value a{color:#f0c040;transition:color 0.2s}
+.contact-item-value a:hover{color:#ffe080}
+.contact-cta{background:#f0f4ff;border-radius:16px;padding:40px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.contact-cta h3{font-family:'Oswald',sans-serif;font-size:1.8rem;color:#1a1a2e;margin-bottom:12px}
+.contact-cta p{color:#4a5568;font-size:0.95rem;margin-bottom:28px;line-height:1.7}
+.btn-call{display:inline-flex;align-items:center;gap:10px;background:#f0c040;color:#1a1a2e;padding:16px 36px;border-radius:10px;font-weight:700;font-size:1.1rem;transition:all 0.2s;box-shadow:0 6px 28px rgba(240,192,64,0.4)}
+.btn-call:hover{background:#e0b030;transform:translateY(-2px);box-shadow:0 8px 36px rgba(240,192,64,0.5)}
+.emergency-badge{display:inline-block;background:rgba(220,53,69,0.1);color:#c0392b;border:1px solid rgba(220,53,69,0.2);padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;margin-bottom:20px}
 
-  /* FOOTER */
-  footer {
-    background: #0f1e30;
-    color: rgba(255,255,255,0.45);
-    text-align: center;
-    padding: 28px 5%;
-    font-size: 0.85rem;
-  }
-  footer strong { color: rgba(255,255,255,0.7); }
+/* FOOTER */
+footer{background:#060e28;color:#7a8caa;padding:32px 24px;text-align:center}
+footer .footer-inner{max-width:1200px;margin:0 auto}
+.footer-logo{font-family:'Oswald',sans-serif;font-size:1.3rem;color:#f0c040;margin-bottom:10px}
+.footer-copy{font-size:0.85rem}
+.footer-copy a{color:#9aaccf;transition:color 0.2s}
+.footer-copy a:hover{color:#f0c040}
 
-  /* RESPONSIVE */
-  @media (max-width: 860px) {
-    .ueber-inner { grid-template-columns: 1fr; gap: 36px; }
-    .kontakt-inner { grid-template-columns: 1fr; gap: 36px; }
-  }
-  @media (max-width: 600px) {
-    section { padding: 54px 5%; }
-    .features-grid { grid-template-columns: 1fr; }
-    .hero { padding: 60px 5% 70px; }
-    .bew-header { flex-direction: column; align-items: flex-start; }
-    .kontakt-cta { padding: 28px 20px; }
-    nav { padding: 0 4%; }
-    .nav-logo { font-size: 1rem; }
-  }
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-inner{grid-template-columns:1fr}
+  .about-img-wrap img{height:300px}
+  .contact-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  section{padding:56px 16px}
+  .hero-buttons{flex-direction:column;align-items:center}
+  .about-features{grid-template-columns:1fr}
+  .hours-table td{padding:11px 18px}
+  .contact-info{padding:28px 20px}
+  .contact-cta{padding:28px 20px}
+}
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">ð <span>MÃ¼ller</span>&nbsp;SchlÃ¼sseldienst</a>
-  <a href="tel:+4930233292997" class="nav-cta">ð Jetzt anrufen</a>
+  <div class="nav-inner">
+    <div class="nav-logo">M&uuml;ller Schl&uuml;sseldienst</div>
+    <ul class="nav-links">
+      <li><a href="#about">&Uuml;ber uns</a></li>
+      <li><a href="#hours">&Ouml;ffnungszeiten</a></li>
+      <li><a href="#reviews">Bewertungen</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <a href="tel:+493023329299" class="btn-primary nav-cta">&#128222; Jetzt anrufen</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">ð SchlÃ¼sselnotdienst Â· Berlin Pankow</div>
-  <h1>MÃ¼ller <span>SchlÃ¼sseldienst</span></h1>
-  <p class="hero-sub">Ihr zuverlÃ¤ssiger SchlÃ¼sselnotdienst in Berlin â schnell, fair und transparent.</p>
-  <div class="hero-stars">
-    <span class="stars-icons">âââââ</span>
-    <span class="stars-text">5,0 von 5 Sternen Â· 8 Bewertungen</span>
-  </div>
-  <div class="hero-actions">
-    <a href="tel:+4930233292997" class="btn-primary">ð +49 30 233292997</a>
-    <a href="#kontakt" class="btn-outline">Kontakt aufnehmen</a>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Schl&uuml;sselnotdienst Berlin</div>
+    <h1 class="hero-title">M&uuml;ller Schl&uuml;sseldienst</h1>
+    <p class="hero-subtitle">Ihr zuverl&auml;ssiger Schl&uuml;sseldienst in Berlin &ndash; Bezirk Pankow</p>
+    <div class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="hero-rating">5,0 von 5 &ndash; 8 Kundenbewertungen</p>
+    <div class="hero-buttons">
+      <a href="tel:+4930233292997" class="btn-primary">&#128222; +49 30 233292997</a>
+      <a href="#about" class="btn-secondary">Mehr erfahren</a>
+    </div>
   </div>
 </section>
 
-<!-- ÃBER UNS -->
-<section class="ueber-uns" id="ueber-uns">
-  <div class="ueber-inner">
-    <div class="ueber-text">
-      <p class="section-label">Ãber uns</p>
-      <h2 class="section-title">Ihr Experte fÃ¼r SchlÃ¼ssel&shy;notdienste in Berlin</h2>
-      <div class="section-divider"></div>
-      <p>MÃ¼ller SchlÃ¼sseldienst ist Ihr vertrauenswÃ¼rdiger Partner fÃ¼r alle Anliegen rund um SchlÃ¶sser und Sicherheit in Berlin und dem Bezirk Pankow. Egal ob Sie sich ausgesperrt haben, ein neues Sicherheitsschloss benÃ¶tigen oder schnelle Hilfe in Notsituationen brauchen â wir sind fÃ¼r Sie da.</p>
-      <p>Unser erfahrenes Team ist tÃ¤glich von 08:00 bis 02:00 Uhr im Einsatz und garantiert eine schnelle Reaktionszeit sowie faire, transparente Preise â genau so, wie wir es am Telefon besprechen.</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">â¡</div>
-          <div>
-            <h4>Schnelle Reaktion</h4>
-            <p>Wir sind in kÃ¼rzester Zeit bei Ihnen vor Ort.</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð°</div>
-          <div>
-            <h4>Faire Preise</h4>
-            <p>Transparente Kosten â keine versteckten GebÃ¼hren.</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð¡ï¸</div>
-          <div>
-            <h4>VertrauenswÃ¼rdig</h4>
-            <p>ZuverlÃ¤ssige Arbeit mit hÃ¶chster QualitÃ¤t.</p>
-          </div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">ð</div>
-          <div>
-            <h4>Lange Ãffnungszeiten</h4>
-            <p>TÃ¤glich von 08:00 bis 02:00 Uhr fÃ¼r Sie erreichbar.</p>
-          </div>
-        </div>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=600&h=400&fit=crop" alt="M&uuml;ller Schl&uuml;sseldienst Team">
+        <div class="about-img-badge">&#128274; Schnell &amp; Zuverl&auml;ssig</div>
       </div>
-    </div>
-    <div class="ueber-visual">
-      <div class="big-icon">ð</div>
-      <h3>Professioneller SchlÃ¼sseldienst in Berlin Pankow</h3>
-      <p>Wir helfen Ihnen bei Aussperrungen, Schlossaustausch, Einbruchschutz und vielem mehr â schnell, kompetent und zu fairen Preisen.</p>
-      <div class="ueber-stat-row">
-        <div class="ueber-stat">
-          <div class="num">5â</div>
-          <div class="lbl">Bewertung</div>
-        </div>
-        <div class="ueber-stat">
-          <div class="num">8</div>
-          <div class="lbl">Bewertungen</div>
-        </div>
-        <div class="ueber-stat">
-          <div class="num">18h</div>
-          <div class="lbl">TÃ¤gl. Betrieb</div>
+      <div class="about-text">
+        <div class="section-label">&Uuml;ber uns</div>
+        <h2 class="section-title">Ihr Experte f&uuml;r Schl&uuml;sselnotdienst in Berlin</h2>
+        <div class="section-divider"></div>
+        <p>M&uuml;ller Schl&uuml;sseldienst ist Ihr vertrauensw&uuml;rdiger Partner bei Schl&uuml;sselproblemen aller Art in Berlin und Umgebung. Ob Hausschlie&szlig;ung, Wohnungsschl&uuml;ssel verloren oder T&uuml;r zugefallen &ndash; unser erfahrenes Team ist schnell bei Ihnen vor Ort.</p>
+        <p>Wir legen gr&ouml;&szlig;ten Wert auf Transparenz und Ehrlichkeit. Die am Telefon genannten Preise werden eingehalten &ndash; ohne versteckte Kosten. Unsere Mitarbeiter arbeiten professionell, schnell und mit echtem K&ouml;nnen.</p>
+        <p>Von Bezirk Pankow aus betreuen wir Kunden in ganz Berlin &ndash; 7 Tage die Woche, fr&uuml;h morgens bis sp&auml;t nachts. Vertrauen Sie auf jahrelange Erfahrung und exzellenten Service.</p>
+        <div class="about-features">
+          <div class="feature-item"><span class="feature-icon">&#9889;</span> Schnelle Reaktionszeit</div>
+          <div class="feature-item"><span class="feature-icon">&#128176;</span> Faire &amp; transparente Preise</div>
+          <div class="feature-item"><span class="feature-icon">&#128274;</span> Alle Schlie&szlig;systeme</div>
+          <div class="feature-item"><span class="feature-icon">&#128100;</span> Freundliches Team</div>
+          <div class="feature-item"><span class="feature-icon">&#128205;</span> Berlin &amp; Umgebung</div>
+          <div class="feature-item"><span class="feature-icon">&#128197;</span> 7 Tage verf&uuml;gbar</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ÃFFNUNGSZEITEN -->
-<section class="oeffnungszeiten" id="oeffnungszeiten">
-  <div class="oeff-inner">
-    <p class="section-label">Wann wir fÃ¼r Sie da sind</p>
-    <h2 class="section-title">Ãffnungszeiten</h2>
-    <div class="section-divider"></div>
-    <table class="oeff-table">
-      <thead>
+<!-- HOURS -->
+<section class="hours" id="hours">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="section-label">&Ouml;ffnungszeiten</div>
+      <h2 class="section-title">&Ouml;ffnungszeiten</h2>
+      <div class="section-divider" style="margin:0 auto 0 auto"></div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-header">&#128337; Wochentage &amp; Zeiten</div>
+      <table class="hours-table">
         <tr>
-          <th>Wochentag</th>
-          <th>Ãffnungszeiten</th>
+          <td class="day">Montag</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
         </tr>
-      </thead>
-      <tbody>
-        <tr><td>Montag</td><td>08:00 â 02:00 Uhr</td></tr>
-        <tr><td>Dienstag</td><td>08:00 â 02:00 Uhr</td></tr>
-        <tr><td>Mittwoch</td><td>08:00 â 02:00 Uhr</td></tr>
-        <tr><td>Donnerstag</td><td>08:00 â 02:00 Uhr</td></tr>
-        <tr><td>Freitag</td><td>08:00 â 02:00 Uhr</td></tr>
-        <tr><td>Samstag</td><td>08:00 â 02:00 Uhr</td></tr>
-        <tr><td>Sonntag</td><td>08:00 â 02:00 Uhr</td></tr>
-      </tbody>
-    </table>
-    <div style="margin-top:18px;">
-      <span class="open-badge">Heute geÃ¶ffnet â TÃ¤glich erreichbar</span>
+        <tr>
+          <td class="day">Dienstag</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
+        </tr>
+        <tr>
+          <td class="day">Mittwoch</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
+        </tr>
+        <tr>
+          <td class="day">Donnerstag</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
+        </tr>
+        <tr>
+          <td class="day">Freitag</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
+        </tr>
+        <tr>
+          <td class="day">Samstag</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
+        </tr>
+        <tr>
+          <td class="day">Sonntag</td>
+          <td class="time">08:00 &ndash; 02:00 Uhr</td>
+        </tr>
+      </table>
     </div>
+    <p class="hours-note">&#9888; Bei Notf&auml;llen au&szlig;erhalb der &Ouml;ffnungszeiten: <span>+49 30 233292997</span></p>
   </div>
 </section>
 
-<!-- BEWERTUNGEN -->
-<section class="bewertungen" id="bewertungen">
-  <div class="bew-inner">
-    <p class="section-label">Was unsere Kunden sagen</p>
-    <h2 class="section-title">Kundenbewertungen</h2>
-    <div class="section-divider"></div>
-    <div class="bew-header">
-      <div class="bew-score">
-        <div class="score-num">5,0</div>
-        <div class="score-stars">âââââ</div>
-        <div class="score-count">8 Bewertungen</div>
-      </div>
-      <div class="bew-desc">
-        <h3>Ausgezeichneter Service</h3>
-        <p>Unsere Kunden schÃ¤tzen unsere Schnelligkeit, Freundlichkeit und faire Preisgestaltung. Ãberzeugen Sie sich selbst von unserer Arbeit!</p>
-      </div>
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-label">Kundenstimmen</div>
+      <h2 class="section-title">Was unsere Kunden sagen</h2>
+      <div class="section-divider" style="margin:0 auto 32px auto"></div>
+    </div>
+    <div class="rating-summary">
+      <div class="rating-big">5,0</div>
+      <div class="rating-stars-big">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rating-count">Basierend auf 8 Bewertungen</div>
     </div>
     <div class="reviews-grid">
+
+      <!-- Review 1 -->
       <div class="review-card">
-        <div class="review-stars">âââââ</div>
-        <p class="review-text">Ehrlich obwohl ich keine SchlÃ¼sseldkenste rufe habe ich es getan und habe es nicht bereut wirklich top Arbeit sehr sympathische Menschen eine 10/10</p>
-        <div class="review-author">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Ehrlich obwohl ich keine Schl&uuml;sselkdienste rufe habe ich es getan und habe es nicht bereut wirklich top Arbeit sehr sympathische Menschen eine 10/10&ldquo;</p>
+        <div class="review-meta">
           <div class="review-avatar">K</div>
           <div>
-            <div class="review-name">Kunde</div>
-            <div class="review-platform">Google Bewertung</div>
+            <div class="review-author">Kunde</div>
+            <div class="review-date">Google Bewertung</div>
           </div>
         </div>
       </div>
+
+      <!-- Review 2 -->
       <div class="review-card">
-        <div class="review-stars">âââââ</div>
-        <p class="review-text">Super nett, Mitarbeiter waren sehr freundlich, Preis sehr fair.</p>
-        <div class="review-author">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Super nett, Mitarbeiter waren sehr freundlich, Preis sehr fair.&ldquo;</p>
+        <div class="review-meta">
           <div class="review-avatar">K</div>
           <div>
-            <div class="review-name">Kunde</div>
-            <div class="review-platform">Google Bewertung</div>
+            <div class="review-author">Kunde</div>
+            <div class="review-date">Google Bewertung</div>
           </div>
         </div>
       </div>
+
+      <!-- Review 3 -->
       <div class="review-card">
-        <div class="review-stars">âââââ</div>
-        <p class="review-text">Fair und transparent und der Mitarbeiter war schnell vor Ort</p>
-        <div class="review-author">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Fair und transparent und der Mitarbeiter war schnell vor Ort&ldquo;</p>
+        <div class="review-meta">
           <div class="review-avatar">K</div>
           <div>
-            <div class="review-name">Kunde</div>
-            <div class="review-platform">Google Bewertung</div>
+            <div class="review-author">Kunde</div>
+            <div class="review-date">Google Bewertung</div>
           </div>
         </div>
       </div>
+
+      <!-- Review 4 -->
       <div class="review-card">
-        <div class="review-stars">âââââ</div>
-        <p class="review-text">Preis eingehalten wie am Telefon besprochen, netter Mitarbeiter danke ðð»</p>
-        <div class="review-author">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">&bdquo;Preis eingehalten wie am Telefon besprochen, netter Mitarbeiter danke &#128591;&ldquo;</p>
+        <div class="review-meta">
           <div class="review-avatar">K</div>
           <div>
-            <div class="review-name">Kunde</div>
-            <div class="review-platform">Google Bewertung</div>
+            <div class="review-author">Kunde</div>
+            <div class="review-date">Google Bewertung</div>
           </div>
         </div>
       </div>
+
+      <!-- Review 5 -->
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text empty">5-Sterne-Bewertung ohne Kommentar &ndash; Vollste Zufriedenheit!</p>
+        <div class="review-meta">
+          <div class="review-avatar">K</div>
+          <div>
+            <div class="review-author">Kunde</div>
+            <div class="review-date">Google Bewertung</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- KONTAKT -->
-<section class="kontakt" id="kontakt">
-  <div class="kontakt-inner">
-    <div>
-      <p class="section-label">Wir helfen sofort</p>
-      <h2 class="section-title">Kontakt &amp; Standort</h2>
-      <div class="section-divider"></div>
-      <div class="kontakt-info">
-        <div class="kontakt-item">
-          <div class="kontakt-icon">ð</div>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="section-label">Kontakt</div>
+      <h2 class="section-title">Jetzt Kontakt aufnehmen</h2>
+      <div class="section-divider" style="margin:0 auto"></div>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-info">
+        <h3>Kontaktdaten</h3>
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
           <div>
-            <h4>Adresse</h4>
-            <p>MÃ¼hlenstraÃe 47<br>13187 Berlin, Deutschland<br>Bezirk Pankow</p>
+            <div class="contact-item-label">Adresse</div>
+            <div class="contact-item-value">M&uuml;hlenstra&szlig;e 47<br>13187 Berlin, Deutschland<br>Bezirk Pankow</div>
           </div>
         </div>
-        <div class="kontakt-item">
-          <div class="kontakt-icon">ð</div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128222;</div>
           <div>
-            <h4>Telefon</h4>
-            <a href="tel:+4930233292997">+49 30 233292997</a>
+            <div class="contact-item-label">Telefon</div>
+            <div class="contact-item-value"><a href="tel:+4930233292997">+49 30 233292997</a></div>
           </div>
         </div>
-        <div class="kontakt-item">
-          <div class="kontakt-icon">ð</div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9733;</div>
           <div>
-            <h4>Ãffnungszeiten</h4>
-            <p>TÃ¤glich: 08:00 â 02:00 Uhr</p>
+            <div class="contact-item-label">Bewertung</div>
+            <div class="contact-item-value">5,0 / 5 &ndash; 8 Bewertungen</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128337;</div>
+          <div>
+            <div class="contact-item-label">&Ouml;ffnungszeiten</div>
+            <div class="contact-item-value">T&auml;glich 08:00 &ndash; 02:00 Uhr</div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="kontakt-cta">
-      <h3>Jetzt Hilfe rufen!</h3>
-      <p>Ausgesperrt oder Schloss defekt? Wir sind fÃ¼r Sie da â rufen Sie uns jetzt an und wir kommen schnellstmÃ¶glich zu Ihnen.</p>
-      <a href="tel:+4930233292997" class="kontakt-phone">ð +49 30 233292997</a>
-      <p class="emergency-note">TÃ¤glich von 08:00 bis 02:00 Uhr erreichbar â auch an Sonn- und Feiertagen</p>
+      <div class="contact-cta">
+        <div class="emergency-badge">&#9888; Schl&uuml;sselnotdienst verf&uuml;gbar</div>
+        <h3>Schlo&szlig; offen in k&uuml;rzester Zeit!</h3>
+        <p>Stehen Sie vor Ihrer T&uuml;r oder haben Sie Ihren Schl&uuml;ssel verloren? Kein Problem &ndash; unser Team ist schnell f&uuml;r Sie da. Rufen Sie uns jetzt an und wir helfen Ihnen umgehend weiter &ndash; zu fairen, transparenten Preisen.</p>
+        <a href="tel:+4930233292997" class="btn-call">&#128222; +49 30 233292997</a>
+        <p style="margin-top:18px;font-size:0.85rem;color:#9aaccf">T&auml;glich erreichbar von 08:00 bis 02:00 Uhr</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2024 <strong>MÃ¼ller SchlÃ¼sseldienst</strong> Â· MÃ¼hlenstraÃe 47, 13187 Berlin Â· <a href="tel:+4930233292997" style="color:rgba(255,255,255,0.55);text-decoration:none;">+49 30 233292997</a></p>
+  <div class="footer-inner">
+    <div class="footer-logo">M&uuml;ller Schl&uuml;sseldienst</div>
+    <p class="footer-copy">&copy; 2026 M&uuml;ller Schl&uuml;sseldienst &ndash; M&uuml;hlenstra&szlig;e 47, 13187 Berlin | <a href="tel:+4930233292997">+49 30 233292997</a></p>
+  </div>
 </footer>
 
 </body>
